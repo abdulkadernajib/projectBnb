@@ -1,0 +1,19 @@
+<div class="container">
+    <div class="card mb-3"  *ngFor="let p of properties">
+        <div class="row g-0" >
+          <div class="col-md-4">
+            <img [src]="roomImage" class="img-fluid rounded-start" alt="...">
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <h5 class="card-title">{{p.name}}</h5>
+              <p class="card-text">Located in the serinity of the nature. It will calm your senses. and we promise to give you a stany that you'll always cherish</p>
+              <p class="card-text">Address: {{p.address}}, {{p.city}} {{p.pinCode}} {{p.state}}</p>
+              <p class="card-text">Contact: {{p.phone}} | email: {{p.email}} </p>
+              <p class="card-text">Rooms Available {{p.roomsAvailable}}/{{p.numberOfRooms}} </p>
+              <p class="card-text"><small class="text-body-secondary">Last updated {{p.lastUpdate}} </small></p>
+            </div>
+          </div>
+        </div>
+      </div>
+</div>

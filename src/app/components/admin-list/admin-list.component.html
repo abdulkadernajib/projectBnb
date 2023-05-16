@@ -1,0 +1,80 @@
+<div class="container">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Address</th>
+                <th>City</th>
+                <th></th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let p of properties">
+                <td>{{p.name}} </td>
+                <td>{{p.address}} </td>
+                <td>{{p.city}}</td>
+                <td><a (click)="onEdit(p)"><i class="bi bi-pencil-square"></i></a></td>
+                <td><a  (click)="onDelete(p._id)" ><i class="bi bi-trash"></i></a></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div *ngIf="updateId">
+        
+    
+    <h3>Update: {{property.name}} | {{property.address}}, {{property.city}} </h3>
+    <form class="form" #updateForm="ngForm" (ngSubmit)="onUpdate(property._id,updateForm.value)">
+        <div class="form-group">
+            <label for="name" class="form-label">Property Name</label>
+            <input type="text" class="form-control" name="name" [(ngModel)]="property.name">
+        </div>
+        
+        <div class="row">
+            <div class="form-group col-md-4">
+                <label for="numberOfRooms" class="form-label">Number Of Rooms</label>
+                <input type="text" class="form-control" name="numberOfRooms" [(ngModel)]="property.numberOfRooms">
+            </div>
+            <div class="form-group col-md-4">
+                <label for="availableRooms" class="form-label">Available Rooms</label>
+                <input type="text" class="form-control" name="availableRooms" [(ngModel)]="property.availableRooms">
+            </div>
+            <div class="form-group col-md-4">
+                <label for="tarrif" class="form-label">Tarrif</label>
+                <input type="text" class="form-control" name="tarrif" [(ngModel)]="property.tarrif">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="address" class="form-label">Address</label>
+            <input type="text" class="form-control" name="address" [(ngModel)]="property.address">
+        </div>
+
+        <div class="row">
+            <div class="form-group col-md-4">
+                <label for="state" class="form-label"  >State</label>
+                <input name="state" id="" class="form-control" [(ngModel)]="property.state" >
+            </div>
+            <div class="form-group col-md-4">
+                <label for="city" class="form-label">City</label>
+                <input name="city" id="" class="form-control" [(ngModel)]="property.city">
+            </div>
+            <div class="form-group col-md-4">
+                <label for="pinCode" class="form-label">Pin Code</label>
+                <input type="text" class="form-control" name="pinCode" [(ngModel)]="property.pinCode">
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="form-group col-md-6">
+                <label for="phone" class="form-label">Phone</label>
+                <input type="text" class="form-control" name="phone" [(ngModel)]="property.phone">
+            </div>
+            <div class="form-group col-md-6">
+                <label for="email" class="form-label">email</label>
+                <input type="text" class="form-control" name="email" [(ngModel)]="property.email">
+            </div>
+        </div>
+        <div class="form-group"><button class="btn btn-primary" type="submit">Submit</button></div>
+    </form>
+</div>
+</div>

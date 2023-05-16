@@ -1,0 +1,66 @@
+<div class="container">
+    <h3>New Property</h3>
+    <p>{{propertyForm.value |json}}</p>
+    <form class="form" #propertyForm="ngForm" (ngSubmit)="onSubmit(propertyForm.value)">
+        <div class="form-group">
+            <label for="name" class="form-label">Property Name</label>
+            <input type="text" class="form-control" name="name" [(ngModel)]="property.name">
+        </div>
+        <div class="row">
+            <div class="form-group col-md-4">
+                <label for="numberOfRooms" class="form-label">Number Of Rooms</label>
+                <input type="text" class="form-control" name="numberOfRooms" [(ngModel)]="property.numberOfRooms">
+            </div>
+            <div class="form-group col-md-4">
+                <label for="availableRooms" class="form-label">Available Rooms</label>
+                <input type="text" class="form-control" name="availableRooms" [(ngModel)]="property.availableRooms">
+            </div>
+            <div class="form-group col-md-4">
+                <label for="tarrif" class="form-label">Tarrif</label>
+                <input type="text" class="form-control" name="tarrif" [(ngModel)]="property.tarrif">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="address" class="form-label">Address</label>
+            <input type="text" class="form-control" name="address" [(ngModel)]="property.address">
+        </div>
+        <div class="row">
+            <div class="form-group col-md-4">
+                <label for="state" class="form-label"  >State</label>
+                <select name="state" id="" class="form-control" [(ngModel)]="property.state" (change)="stateChange()">
+                    <option *ngFor="let s of states" [value]="s.name" >{{s.name}}</option>
+                </select>
+            </div>
+            <div class="form-group col-md-4">
+                <label for="city" class="form-label">City</label>
+                <select name="city" id="" class="form-control" [(ngModel)]="property.city">
+                    <option *ngFor="let c of cities" [value]="c.name">{{c.name}}</option>
+                </select>
+            </div>
+            <div class="form-group col-md-4">
+                <label for="pinCode" class="form-label">Pin Code</label>
+                <input type="text" class="form-control" name="pinCode" [(ngModel)]="property.pinCode">
+            </div>
+
+        </div>
+        <div class="row">
+            <div class="form-group col-md-6">
+                <label for="phone" class="form-label">Phone</label>
+                <input type="text" class="form-control" name="phone" [(ngModel)]="property.phone">
+            </div>
+            <div class="form-group col-md-6">
+                <label for="email" class="form-label">email</label>
+                <input type="text" class="form-control" name="email" [(ngModel)]="property.email">
+            </div>
+        </div>
+        <div class="form-group">
+            <img  class="img-thumbnail" [src]="imageData" alt="..." (click)="upldRoomImg.click()">
+            <div>
+                <input hidden type="file" #upldRoomImg (change)="imageUpload($event)">
+                <select hidden type="text" name="images" [(ngModel)]="property.images"></select>
+                <!-- <button class="btn btn-primary" (click)="upldRoomImg.click()">upload</button> -->
+            </div>
+        </div>
+        <div class="form-group"><button class="btn btn-primary" type="submit">Submit</button></div>
+    </form>
+</div>
